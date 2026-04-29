@@ -72,12 +72,17 @@ a:hover {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 0.45rem 0.75rem;
-  border-radius: 999px;
+  height: 40px;
+  border-radius: 12px;
   border: 1px solid transparent;
   color: var(--text);
   transition: 0.2s ease;
@@ -91,6 +96,30 @@ a:hover {
 .nav-links a.active {
   background: var(--accent);
   color: #fff;
+}
+
+.nav-download {
+  margin-left: 0.35rem;
+}
+
+.nav-links .nav-download {
+  background: linear-gradient(135deg, var(--accent), #eb8a55);
+  color: var(--text);
+  font-weight: 500;
+  margin-top: 0;
+  min-width: 0;
+  filter: none;
+}
+
+.nav-links .nav-download:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+  filter: none;
+}
+
+.nav-links .nav-download img {
+  height: 24px;
 }
 
 main {
@@ -185,7 +214,9 @@ main {
 }
 
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   background: linear-gradient(135deg, var(--accent), #eb8a55);
   color: #fff;
@@ -198,6 +229,21 @@ main {
 .btn-primary:hover {
   color: #fff;
   filter: brightness(1.05);
+}
+
+.btn-primary img {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.cta-download {
+  display: flex;
+  min-width: 220px;
+  width: fit-content;
+  margin: 0.75rem auto 0;
 }
 
 .theme-thumbs {
