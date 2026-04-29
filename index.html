@@ -1,11 +1,60 @@
-<!doctype html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calpaper Docs | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<h1>Hello World</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Calpaper Docs</a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="themes.html">Themes</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Welcome to the Calpaper Documentation</h1>
+        <p>
+          This site contains everything users need to get started with Calpaper.
+          You can publish this project directly with GitHub Pages and use these pages
+          as your official app documentation and legal section.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Themes</h3>
+            <p>Overview of available theme styles and guidance on visual customization.</p>
+            <a href="themes.html">Open Themes page</a>
+          </article>
+          <article class="card">
+            <h3>Privacy Policy</h3>
+            <p>How user data is handled, stored, and protected by your app.</p>
+            <a href="privacy-policy.html">Open Privacy Policy</a>
+          </article>
+          <article class="card">
+            <h3>Terms & Conditions</h3>
+            <p>The legal terms for using the app and related services.</p>
+            <a href="terms-and-conditions.html">Open Terms</a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 Calpaper. All rights reserved.</div>
+  </footer>
 </body>
 </html>
