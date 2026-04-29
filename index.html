@@ -22,32 +22,116 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="hero">
-        <h1>Welcome to the CalPaper Documentation</h1>
+    <div class="container home-stack">
+      <section class="hero" id="intro">
+        <h1>Turn your calendar into a living desktop</h1>
         <p>
-          This site contains everything users need to get started with CalPaper.
-          You can publish this project directly with GitHub Pages and use these pages
-          as your official app documentation and legal section.
+          CalPaper blends your events into beautiful wallpaper compositions, so your day
+          is always visible at a glance without opening another app.
         </p>
+        <a class="btn-primary" href="https://www.microsoft.com/store" target="_blank" rel="noopener noreferrer">Get it on Microsoft Store</a>
+      </section>
 
+      <section class="page-content" id="features">
+        <h2>Feature Highlights</h2>
         <div class="grid">
           <article class="card">
-            <h3>Themes</h3>
-            <p>Overview of available theme styles and guidance on visual customization.</p>
-            <a href="themes.html">Open Themes page</a>
+            <h3>Live Calendar Wallpaper</h3>
+            <p>Calendar events are rendered directly into your background for instant visibility.</p>
           </article>
           <article class="card">
-            <h3>Privacy Policy</h3>
-            <p>How user data is handled, stored, and protected by your app.</p>
-            <a href="privacy-policy.html">Open Privacy Policy</a>
+            <h3>Multi-Provider Support</h3>
+            <p>Connect Google, Outlook, Apple Calendar, and ICS sources in one place.</p>
           </article>
           <article class="card">
-            <h3>Terms of Use</h3>
-            <p>The legal terms for using the app and related services.</p>
-            <a href="terms-of-use.html">Open Terms</a>
+            <h3>Local-First Privacy</h3>
+            <p>Your event data stays on device for a privacy-focused default setup.</p>
           </article>
         </div>
+      </section>
+
+      <section class="page-content" id="themes-preview">
+        <h2>Themes</h2>
+        <div class="theme-thumbs">
+          <a class="theme-thumb" href="themes.html">
+            <img src="src/calpaper-icon.png" alt="Theme preview minimal" loading="lazy">
+            <span>Minimal</span>
+          </a>
+          <a class="theme-thumb" href="themes.html">
+            <img src="src/calpaper-icon.png" alt="Theme preview vibrant" loading="lazy">
+            <span>Vibrant</span>
+          </a>
+          <a class="theme-thumb" href="themes.html">
+            <img src="src/calpaper-icon.png" alt="Theme preview night" loading="lazy">
+            <span>Night</span>
+          </a>
+        </div>
+        <p><a href="themes.html">Open full Themes page</a></p>
+      </section>
+
+      <section class="page-content" id="plans">
+        <h2>Free vs Subscription</h2>
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Free</th>
+                <th>Subscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Theme presets</td>
+                <td>Basic set</td>
+                <td>All themes</td>
+              </tr>
+              <tr>
+                <td>Calendar providers</td>
+                <td>1 provider</td>
+                <td>Multiple providers</td>
+              </tr>
+              <tr>
+                <td>Wallpaper refresh frequency</td>
+                <td>Standard</td>
+                <td>High frequency</td>
+              </tr>
+              <tr>
+                <td>Advanced customization</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page-content" id="faq">
+        <h2>FAQ</h2>
+
+        <details class="faq-item" id="faq-supported-calendars">
+          <summary>Which calendars are supported?</summary>
+          <p>Google Calendar, Microsoft Outlook, Apple Calendar, and ICS feeds are supported.</p>
+          <a class="faq-link" href="#faq-supported-calendars">Direct link</a>
+        </details>
+
+        <details class="faq-item" id="faq-local-storage">
+          <summary>Is my data stored in the cloud?</summary>
+          <p>No by default. CalPaper is local-first, and stores data on your device unless a sync feature is explicitly enabled in the future.</p>
+          <a class="faq-link" href="#faq-local-storage">Direct link</a>
+        </details>
+
+        <details class="faq-item" id="faq-subscription-cancel">
+          <summary>Can I cancel my subscription anytime?</summary>
+          <p>Yes. Subscriptions are managed through your Microsoft account and can be canceled there anytime.</p>
+          <a class="faq-link" href="#faq-subscription-cancel">Direct link</a>
+        </details>
+
+        <details class="faq-item" id="faq-connect-apple-calendar">
+          <summary>How do I connect Apple Calendar?</summary>
+          <p>Use our step-by-step guide here: <a href="apple-calendar-connection.html">Detailed Apple Calendar connection steps</a>.</p>
+          <a class="faq-link" href="#faq-connect-apple-calendar">Direct link</a>
+        </details>
       </section>
     </div>
   </main>
@@ -61,10 +145,21 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      function openFaqFromHash() {
+        var hash = window.location.hash;
+        if (!hash) return;
+        var target = document.querySelector(hash);
+        if (target && target.tagName.toLowerCase() === 'details') {
+          target.open = true;
+        }
+      }
+
+      openFaqFromHash();
+      window.addEventListener('hashchange', openFaqFromHash);
+    }());
+  </script>
 </body>
 </html>
-
-
-
-
-
