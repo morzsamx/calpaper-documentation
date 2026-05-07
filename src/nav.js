@@ -58,8 +58,30 @@
   }
 
   function getHeaderHeight() {
+    if (isMobileNavLayout()) {
+      return getMobileTopBarHeight();
+    }
+
     var header = document.querySelector('.site-header');
     return header ? header.offsetHeight : 0;
+  }
+
+  function isMobileNavLayout() {
+    return navToggle && window.getComputedStyle(navToggle).display !== 'none';
+  }
+
+  function getMobileTopBarHeight() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return 0;
+
+    var brand = document.querySelector('.brand');
+    var navToggleHeight = navToggle ? navToggle.getBoundingClientRect().height : 0;
+    var brandHeight = brand ? brand.getBoundingClientRect().height : 0;
+    var navStyle = window.getComputedStyle(nav);
+    var paddingTop = parseFloat(navStyle.paddingTop) || 0;
+    var paddingBottom = parseFloat(navStyle.paddingBottom) || 0;
+
+    return Math.ceil(paddingTop + Math.max(brandHeight, navToggleHeight) + paddingBottom);
   }
 
   function getHomeStackGap() {
