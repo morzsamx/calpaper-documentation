@@ -506,18 +506,13 @@ main {
 
   .nav-links {
     display: none;
-    position: fixed;
+    position: sticky;
     top: 100%;
     left: 0;
     right: 0;
     width: 100%;
     gap: 0.35rem;
-    padding: 0.75rem;
-    backdrop-filter: blur(8px) !important;
-    background: #ffffffc4 !important;
     border: none;
-    border-radius: 0 0 18px 18px;
-    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.08);
     z-index: 25;
   }
 
@@ -529,6 +524,10 @@ main {
 
   .nav-links .nav-download {
     width: 100%;
+  }
+  
+  .site-header.nav-open {
+    border-radius: 0 0 18px 18px;
   }
 
   .site-header.nav-open .nav-links {
@@ -601,6 +600,7 @@ main {
 }
 
 @media (max-width: 480px) {
+
   main {
     padding: 1.25rem 0 2.5rem;
   }
