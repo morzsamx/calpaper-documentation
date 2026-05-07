@@ -48,22 +48,60 @@
       </section>
 
       <section class="page-content" id="features">
-        <h2>Feature Highlights</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Live Calendar Wallpaper</h3>
-            <p>Calendar events are rendered directly into your background for instant visibility.</p>
-          </article>
-          <article class="card">
-            <h3>Multi-Provider Support</h3>
-            <p>Connect Google, Outlook, Apple Calendar, and ICS sources in one place.</p>
-          </article>
-          <article class="card">
-            <h3>Local-First Privacy</h3>
-            <p>Your event data stays on device for a privacy-focused default setup.</p>
-          </article>
-        </div>
-      </section>
+      <h2>Feature Highlights</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-icon">🗓️</div>
+          <h3>Live Calendar Wallpaper</h3>
+          <p>
+            Calendar events are rendered directly into your desktop background for instant visibility.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔗</div>
+          <h3>Multi-Provider Support</h3>
+          <p>
+            Connect Google Calendar, Outlook Calendar, Apple Calendar, and ICS feeds in one unified experience.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Local-First Privacy</h3>
+          <p>
+            Your calendar data stays on your device and is only used locally for rendering your wallpaper.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🖥️</div>
+          <h3>Per-Display Layouts</h3>
+          <p>
+            Configure different layouts and themes independently for each connected monitor.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔄</div>
+          <h3>Live Calendar Updates</h3>
+          <p>
+            Calendar and weather information refresh automatically in the background throughout the day.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Theme Customization</h3>
+          <p>
+            Personalize your wallpaper with built-in themes, color schemes, weather widgets, and layout options.
+          </p>
+        </article>
+
+      </div>
+    </section>
 
       <section class="page-content" id="themes-preview">
         <h2>Themes</h2>
@@ -90,29 +128,54 @@
           <table class="compare-table">
             <thead>
               <tr>
-                <th>Feature</th>
-                <th>Free</th>
-                <th>Subscription</th>
+                <th></th>
+                <th>Free Plan</th>
+                <th>Premium plan</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Theme presets</td>
-                <td>Basic set</td>
-                <td>All themes</td>
+                <td>Billed annually</td>
+                <td>$0.00</td>
+                <td>$5.99 / year</td>
               </tr>
               <tr>
-                <td>Calendar providers</td>
-                <td>1 provider</td>
-                <td>Multiple providers</td>
+                <td>Calendar sources</td>
+                <td>1</td>
+                <td>Unlimited</td>
               </tr>
               <tr>
-                <td>Wallpaper refresh frequency</td>
-                <td>Standard</td>
-                <td>High frequency</td>
+                <td>Auto-update frequency</td>
+                <td>60 min</td>
+                <td>5 min</td>
               </tr>
               <tr>
-                <td>Advanced customization</td>
+                <td>Basic themes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Premium themes</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Theme customization</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Weather widget</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Per-display settings</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Support the developer</td>
                 <td>No</td>
                 <td>Yes</td>
               </tr>
@@ -125,27 +188,86 @@
         <h2>FAQ</h2>
 
         <details class="faq-item" id="faq-supported-calendars">
-          <summary>Which calendars are supported?</summary>
-          <p>Google Calendar, Microsoft Outlook, Apple Calendar, and ICS feeds are supported.</p>
-          <a class="faq-link" href="#faq-supported-calendars">Direct link</a>
+          <summary>Which calendar services are supported?</summary>
+          <p>CalPaper supports Google Calendar, Microsoft Outlook Calendar, Apple Calendar (via CalDAV), and standard ICS calendar feeds.</p>
         </details>
 
-        <details class="faq-item" id="faq-local-storage">
-          <summary>Is my data stored in the cloud?</summary>
-          <p>No by default. CalPaper is local-first, and stores data on your device unless a sync feature is explicitly enabled in the future.</p>
-          <a class="faq-link" href="#faq-local-storage">Direct link</a>
-        </details>
-
-        <details class="faq-item" id="faq-subscription-cancel">
-          <summary>Can I cancel my subscription anytime?</summary>
-          <p>Yes. Subscriptions are managed through your Microsoft account and can be canceled there anytime.</p>
-          <a class="faq-link" href="#faq-subscription-cancel">Direct link</a>
+        <details class="faq-item" id="faq-connect-google-calendar">
+          <summary>How do I connect my Google Calendar?</summary>
+          <p>You can simply sign in with your Google account through Google's secure OAuth authentication flow and grant CalPaper read-only access to your calendar data.</p>
         </details>
 
         <details class="faq-item" id="faq-connect-apple-calendar">
-          <summary>How do I connect Apple Calendar?</summary>
-          <p>Use our step-by-step guide here: <a href="apple-calendar-connection.html">Detailed Apple Calendar connection steps</a>.</p>
-          <a class="faq-link" href="#faq-connect-apple-calendar">Direct link</a>
+          <summary>How do I connect my Apple Calendar?</summary>
+          <p>
+            Apple Calendar can be connected using CalDAV with an Apple app-specific password.<br>
+            Follow our step-by-step setup guide:
+            <a href="apple-calendar-connection.html">Detailed Apple Calendar connection steps</a>
+          </p>
+
+          <p>
+            Alternatively, you can share your Apple Calendar as a public ICS calendar and add it to CalPaper.
+          </p>
+        </details>
+
+        <details class="faq-item" id="faq-connect-outlook-calendar">
+          <summary>How do I connect my Outlook Calendar?</summary>
+          <p>You can simply sign in with your Microsoft account through Microsoft's secure OAuth authentication flow and grant CalPaper read-only access to your calendar data.</p>
+        </details>
+
+        <details class="faq-item" id="faq-connect-ics-calendar">
+          <summary>How do I connect my ICS Calendar?</summary>
+          <p>You can add your ICS calendar feed directly to CalPaper by providing the URL of your calendar's ICS file.</p>
+        </details>
+
+        <details class="faq-item" id="faq-read-only">
+          <summary>Can CalPaper edit my calendar data?</summary>
+          <p>No. CalPaper only downloads calendar data for display purposes and does not have write access to your calendars.</p>
+        </details>
+
+        <details class="faq-item" id="faq-data-storage">
+          <summary>Where is my calendar data stored?</summary>
+          <p>Your calendar data stays on your device. CalPaper only stores locally cached data needed for displaying your calendars.</p>
+        </details>
+
+        <details class="faq-item" id="faq-privacy">
+          <summary>Do you collect or transmit personal data?</summary>
+          <p>No. CalPaper does not send your calendar data to external servers. All data stays on your device and is only used locally for displaying your calendars.</p>
+        </details>
+
+        <details class="faq-item" id="faq-internet">
+          <summary>Does CalPaper require an internet connection?</summary>
+          <p>CalPaper can run without an internet connection, but calendar data and weather information cannot be refreshed while offline.</p>
+        </details>
+
+        <details class="faq-item" id="faq-multiple-monitors">
+          <summary>Does CalPaper support multiple monitors?</summary>
+          <p>Yes. CalPaper works across multiple monitors. The Free plan uses the same layout on all displays, while the Premium plan supports independent per-display settings.</p>
+        </details>
+
+        <details class="faq-item" id="faq-customization">
+          <summary>Can I customize themes and layouts?</summary>
+          <p>Advanced theme and layout customization features are available with the Premium plan.</p>
+        </details>
+
+        <details class="faq-item" id="faq-autostart">
+          <summary>Does CalPaper start automatically with Windows?</summary>
+          <p>Yes. CalPaper can start automatically when Windows launches.</p>
+        </details>
+
+        <details class="faq-item" id="faq-premium-benefits">
+          <summary>What’s included in the Premium subscription?</summary>
+          <p>The Premium plan unlocks unlimited calendar sources, faster auto-updates, premium themes, advanced customization options, the weather widget, and per-display settings.</p>
+        </details>
+
+        <details class="faq-item" id="faq-premium-trial">
+          <summary>Is there a free trial for the Premium subscription?</summary>
+          <p>Yes. The Premium subscription includes a 1-week free trial. After the trial period ends, the subscription will be billed automatically unless canceled beforehand. You can cancel anytime during the trial at no cost.</p>
+        </details>
+
+        <details class="faq-item" id="faq-subscription-cancel">
+          <summary>Can I cancel my Premium subscription anytime?</summary>
+          <p>Yes. Subscriptions are managed through your Microsoft account and can be canceled there anytime.</p>
         </details>
       </section>
     </div>

@@ -293,6 +293,41 @@ main {
   background: #f3ece1;
 }
 
+#features .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+#features .card {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+#features .card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+
+  font-size: 28px;
+
+  border-radius: 18px;
+  background: rgba(0,0,0,0.04);
+}
+
+#features h3 {
+  margin-bottom: 12px;
+}
+
+#features p {
+  line-height: 1.6;
+}
+
 .faq-item {
   border: 1px solid var(--border);
   border-radius: 12px;
