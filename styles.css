@@ -365,6 +365,8 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr) minmax(0, 0.85fr);
   width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 .compare-row {
