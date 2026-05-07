@@ -161,6 +161,7 @@ main {
   font-size: 1.08rem;
   color: var(--muted);
   max-width: 72ch;
+  margin: 1em auto;
 }
 
 .hero-badges {
@@ -168,7 +169,7 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin: 18x 0;
+  margin: 18px 0;
 }
 
 .hero-badges span {
