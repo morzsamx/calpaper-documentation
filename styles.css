@@ -1,6 +1,6 @@
 ﻿:root {
   --bg: #f5f2eb;
-  --surface: #fffdf8;
+  --surface: #ffffff;
   --text: #202020;
   --muted: #5f5a52;
   --accent: #E46826;
@@ -19,10 +19,7 @@ html {
 body {
   margin: 0;
   font-family: "Google Sans", "Product Sans", "Segoe UI", Arial, sans-serif;
-  background:
-    radial-gradient(circle at 12% 18%, #ffe1c9 0, transparent 36%),
-    radial-gradient(circle at 88% 0%, #cde6df 0, transparent 32%),
-    var(--bg);
+  background: radial-gradient(circle at 12% 18%, #c9dfff 0, transparent 36%), radial-gradient(circle at 88% 0%, #cde6df 0, transparent 32%), var(--bg);
   color: var(--text);
   line-height: 1.6;
   display: flex;
@@ -54,7 +51,7 @@ a:hover {
   position: sticky;
   top: 0;
   backdrop-filter: blur(8px);
-  background: rgba(245, 242, 235, 0.92);
+  background:#ffffffc4;
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
@@ -68,10 +65,26 @@ a:hover {
 }
 
 .brand {
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+}
+
+.brand-icon {
+  display: inline-block;
+    vertical-align: middle;
+    height: 33px;
+    margin: 0 5px 0 0;
+    line-height: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.brand-icon img {
+  height: 100%;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -176,6 +189,7 @@ main {
     height: 30px;
     border-radius: 15px;
     line-height: 30px;
+    margin: 0 !important;
 }
 
 .compare-table .fa-times {
@@ -235,8 +249,7 @@ main {
 }
 
 .site-footer {
-  border-top: 1px solid var(--border);
-  padding: 1.25rem 0 2.2rem;
+  padding: 0 0 2.2rem;
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -418,7 +431,7 @@ main {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0.75rem 1rem;
-  background: #fffefb;
+  background: #f8f8f8;
 }
 
 .faq-item + .faq-item {
