@@ -46,28 +46,111 @@
 
   <main>
     <div class="container">
-      <section class="page-content">
+      <section class="page-content doc-page">
+
         <h1>Connect Apple Calendar to CalPaper</h1>
-        <p>Follow these steps to connect your Apple Calendar account securely.</p>
+        <p>
+          Apple does not allow third-party apps to use your normal Apple Account password directly.
+          To connect Apple Calendar in CalPaper, you first need to create a secure app-specific password.
+        </p>
 
-        <h2>Step-by-step</h2>
-        <ol>
-          <li>Open Apple ID settings at <a href="https://account.apple.com" target="_blank" rel="noopener noreferrer">account.apple.com</a>.</li>
-          <li>Sign in, then go to <strong>Sign-In and Security</strong>.</li>
-          <li>Create an <strong>App-Specific Password</strong> for CalPaper.</li>
-          <li>Copy the generated password and keep it ready.</li>
-          <li>Open CalPaper and go to calendar connections.</li>
-          <li>Select <strong>Apple Calendar</strong>.</li>
-          <li>Enter your Apple ID email and the app-specific password.</li>
-          <li>Choose which calendars to sync, then confirm.</li>
-        </ol>
+        <div class="callout callout-warning">
+          <strong>Important:</strong> The password used here is not your normal Apple ID password.
+          CalPaper should only use the app-specific password created in your Apple account.
+        </div>
+        
+        <div class="doc-steps">
+          <article class="doc-step">
+            <div class="doc-step-number">1</div>
+            <div class="doc-step-body">
+              <h2>Open Your Apple Account Settings</h2>
+              <p>
+                Go to <a href="https://account.apple.com" target="_blank" rel="noopener noreferrer">account.apple.com</a>
+                and sign in with your Apple account.
+              </p>
+              <img class="screenshot" src="src/apple-account-screen.webp" alt="Apple account homepage">
+            </div>
+          </article>
 
-        <h2>Troubleshooting</h2>
-        <ul>
-          <li>If login fails, regenerate the app-specific password and try again.</li>
-          <li>Ensure two-factor authentication is enabled on your Apple account.</li>
-          <li>Check your internet connection and Apple service status.</li>
-        </ul>
+          <article class="doc-step">
+            <div class="doc-step-number">2</div>
+            <div class="doc-step-body">
+              <h2>Generate an App-Specific Password</h2>
+              <p>Once logged into your Apple account:</p>
+              <ul>
+                <li>Go to <strong>Sign-In and Security</strong></li>
+                <li>Choose <strong>App-Specific Passwords</strong></li>
+              </ul>
+              <p>
+                Enter a label such as <strong>CalPaper</strong>, then click <strong>Create</strong>.
+              </p>
+              <img class="screenshot" src="src/app-specific-password.webp" alt="App-specific password generation screen in Apple account settings">
+            </div>
+          </article>
+
+          <article class="doc-step">
+            <div class="doc-step-number">3</div>
+            <div class="doc-step-body">
+              <h2>Copy the Generated Password</h2>
+              <p>Apple will generate a password similar to this:</p>
+              <pre><code>abcd-efgh-ijkl-mnop</code></pre>
+              <p>Copy this password immediately, then keep it available for the next step.</p>
+              <ul>
+                <li>This is not your normal Apple ID password.</li>
+                <li>CalPaper only uses this app-specific password.</li>
+                <li>You can revoke it anytime from your Apple account settings.</li>
+              </ul>
+
+              <img class="screenshot" src="src/generated-app-specific-password.webp" alt="Generated app-specific password">
+              
+            </div>
+          </article>
+
+          <article class="doc-step">
+            <div class="doc-step-number">4</div>
+            <div class="doc-step-body">
+              <h2>Add Your Apple Calendar in CalPaper</h2>
+              <p>In CalPaper:</p>
+              <ul>
+                <li>Open <strong>Calendars</strong>.</li>
+                <li>Choose <strong>Add New Calendar</strong>.</li>
+                <li>Select <strong>Apple</strong>.</li>
+              </ul>
+              <p>Enter the following:</p>
+              <ul>
+                <li>Your Apple ID email address.</li>
+                <li>The app-specific password generated in Step 3.</li>
+              </ul>
+              <p>Then click <strong>OK</strong>.</p>
+              <img class="screenshot" src="src/apple_calendar_connection.webp" alt="Apple Calendar connection dialog in CalPaper">
+            </div>
+          </article>
+
+          <article class="doc-step">
+            <div class="doc-step-number">5</div>
+            <div class="doc-step-body">
+              <h2>Select Calendars to Sync</h2>
+              <p>After connecting successfully:</p>
+              <ul>
+                <li>Choose which Apple calendars you want to display.</li>
+                <li>Save your settings.</li>
+              </ul>
+              <p>Your Apple Calendar events should now sync automatically with CalPaper.</p>
+              <p class="screenshot-placeholder">Screenshot placeholder: Calendar selection screen</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout callout-info">
+          <p>Apple Calendar can also be connected to CalPaper as an ICS calendar source if you prefer that route.</p>
+          <p>
+            Fore more information read Apple’s official guide:
+            <a href="https://support.apple.com/en-us/102654" target="_blank" rel="noopener noreferrer">
+              Sign in to apps with your Apple Account using app-specific passwords
+            </a>.
+          </p>
+        </div>
+
       </section>
     </div>
   </main>
@@ -84,7 +167,6 @@
   <script src="src/nav.js"></script>
 </body>
 </html>
-
 
 
 
