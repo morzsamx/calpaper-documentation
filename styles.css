@@ -139,26 +139,6 @@ a:hover {
   color: var(--accent);
 }
 
-.nav-links .nav-download {
-  background: linear-gradient(135deg, var(--accent), #eb8a55);
-  color: var(--text);
-  font-weight: 500;
-  margin-top: 0;
-  min-width: 0;
-  filter: none;
-}
-
-.nav-links .nav-download:hover {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-  filter: none;
-}
-
-.nav-links .nav-download img {
-  height: 24px;
-}
-
 main {
   padding: 3rem 0 4rem;
   flex: 1;
@@ -485,26 +465,90 @@ img.screenshot {
   object-fit: contain;
 }
 
-.cta-download {
+.store-badge {
   display: flex;
-  min-width: 220px;
+  align-items: center;
+  gap: 1rem;
+  min-width: 260px;
   width: fit-content;
+  padding: 0.95rem 1.15rem;
   margin: 0.75rem auto 0;
+  border-radius: 18px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  background: linear-gradient(135deg, var(--accent), #eb8a55);
+  justify-content: center;
+}
+
+.store-badge:hover {
+  color: #fff;
+  background: #000;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+}
+
+.store-badge-icon {
+  flex: 0 0 auto;
+  font-size: 2.2rem;
+  color: #fff;
+  line-height: 1;
+  margin-right: 10px;
+}
+
+.store-badge-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.store-badge-kicker {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.store-badge-title {
+  margin-top: 0.12rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.theme-carousel {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 0 3.5rem;
+}
+
+.theme-carousel-viewport {
+  overflow: hidden;
 }
 
 .theme-thumbs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  display: flex;
+  margin-top: 0;
+  transition: transform 0.35s ease;
 }
 
 .theme-thumb {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   color: var(--text);
+  text-align: center;
 }
 
 .theme-thumb img {
-  width: 100%;
+  width: min(100%, 460px);
   border-radius: 14px;
   border: 1px solid var(--border);
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
@@ -512,8 +556,70 @@ img.screenshot {
 
 .theme-thumb span {
   display: block;
-  margin-top: 0.4rem;
+  margin-top: 0.75rem;
   font-weight: 600;
+}
+
+.theme-carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-carousel-control:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.theme-carousel-prev {
+  left: 0;
+}
+
+.theme-carousel-next {
+  right: 0;
+}
+
+.theme-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.theme-carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(37, 46, 64, 0.18);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-carousel-dot.active,
+.theme-carousel-dot:hover {
+  background: var(--accent);
+  transform: scale(1.08);
+}
+
+.theme-preview-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
 }
 
 .compare-wrap {
@@ -834,10 +940,6 @@ img.screenshot {
     min-height: 44px;
   }
 
-  .nav-links .nav-download {
-    width: 100%;
-  }
-  
   .site-header.nav-open {
     border-radius: 0 0 18px 18px;
   }
@@ -896,9 +998,21 @@ img.screenshot {
   }
 
   #features .grid,
-  .grid,
-  .theme-thumbs {
+  .grid {
     grid-template-columns: 1fr;
+  }
+
+  .theme-carousel {
+    padding: 0 2.5rem;
+  }
+
+  .theme-carousel-control {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .theme-thumb img {
+    width: 100%;
   }
 
   .feature-card {

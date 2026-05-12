@@ -43,12 +43,9 @@
       <nav class="nav-links" id="primary-nav" aria-label="Primary Navigation">
         <a class="active" href="index.html">Home</a>
         <a href="index.html#features">Features</a>
+        <a href="index.html#themes">Themes</a>
         <a href="index.html#premium">Pricing</a>
         <a href="index.html#faq">FAQ</a>
-        <a href="themes.html">Themes</a>
-        <a class="btn-primary nav-download" href="https://www.microsoft.com/store" target="_blank" rel="noopener noreferrer" aria-label="Download on Microsoft Store">
-          <img src="src/microsoft_store_download.png" alt="Download">
-        </a>
       </nav>
     </div>
   </header>
@@ -67,8 +64,12 @@
             <span><i class="icon fab fa-google"></i> Google · <i class="icon fab fa-apple"></i> Apple · <i class="icon fab fa-microsoft"></i> Outlook</span>
           </div>
 
-          <a class="btn-primary cta-download" href="https://www.microsoft.com/store" target="_blank" rel="noopener noreferrer" aria-label="Download on Microsoft Store">
-            <img src="src/microsoft_store_download.png" alt="Download on Microsoft Store">
+          <a class="btn-primary" href="https://apps.microsoft.com/detail/9NB56P1XDNFM" target="_blank" rel="noopener noreferrer" aria-label="Get it from Microsoft">
+            <i class="fab fa-microsoft store-badge-icon" aria-hidden="true"></i>
+            <span class="store-badge-copy">
+              <span class="store-badge-kicker">Get it from</span>
+              <span class="store-badge-title">Microsoft</span>
+            </span>
           </a>
         </div>
 
@@ -119,37 +120,59 @@
         </div>
       </section>
 
-      <section class="page-content" id="themes-preview">
+      <section class="page-content" id="themes">
         <div class="section-heading">
-          <h2>Wallpaper Themes</h2>
-          <p>Choose a look that fits your desktop, from clean minimal layouts to rich visual themes.</p>
+          <h2>Themes</h2>
+          <p>Hand-crafted themes built for crisp high-DPI desktops, deep customization, and calm, ADHD-friendly readability.</p>
         </div>
 
-        <div class="theme-thumbs">
-          <a class="theme-thumb" href="themes.html">
-            <img src="src/theme-minimal-placeholder.png" alt="Minimal theme preview" loading="lazy">
-            <span>Minimal</span>
-          </a>
+        <div class="theme-carousel" data-theme-carousel>
+          <button class="theme-carousel-control theme-carousel-prev" type="button" aria-label="Previous theme" data-carousel-prev>
+            <i class="icon fal fa-chevron-left" aria-hidden="true"></i>
+          </button>
 
-          <a class="theme-thumb" href="themes.html">
-            <img src="src/theme-vibrant-placeholder.png" alt="Vibrant theme preview" loading="lazy">
-            <span>Vibrant</span>
-          </a>
+          <div class="theme-carousel-viewport" tabindex="0" aria-label="Theme previews">
+            <div class="theme-thumbs">
+              <article class="theme-thumb">
+                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                <span>Minimal</span>
+              </article>
 
-          <a class="theme-thumb" href="themes.html">
-            <img src="src/theme-night-placeholder.png" alt="Night theme preview" loading="lazy">
-            <span>Night</span>
-          </a>
+              <article class="theme-thumb">
+                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                <span>Minimal</span>
+              </article>
+
+              <article class="theme-thumb">
+                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                <span>Minimal</span>
+              </article>
+            </div>
+          </div>
+
+          <button class="theme-carousel-control theme-carousel-next" type="button" aria-label="Next theme" data-carousel-next>
+            <i class="icon fal fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
 
-        <p><a href="themes.html">Open full Themes page</a></p>
+        <div class="theme-carousel-dots" aria-label="Choose a theme preview">
+          <button class="theme-carousel-dot active" type="button" aria-label="Show theme 1" aria-pressed="true" data-carousel-dot="0"></button>
+          <button class="theme-carousel-dot" type="button" aria-label="Show theme 2" aria-pressed="false" data-carousel-dot="1"></button>
+          <button class="theme-carousel-dot" type="button" aria-label="Show theme 3" aria-pressed="false" data-carousel-dot="2"></button>
+        </div>
+
+        <div class="theme-preview-actions">
+          <a class="btn-primary" href="themes.html">See More...</a>
+        </div>
       </section>
 
       <section class="page-content upgrade-pitch" id="premium">
-        <h2>Unlock <span style="color: var(--accent);">Premium</span> Features</h2>
-        <p>
-          Premium gives you unlimited calendar sources, faster updates, weather widgets, premium themes, and independent settings for each display.
-        </p>
+        <div class="section-heading">
+          <h2>Unlock <span style="color: var(--accent);">Premium</span> Features</h2>
+          <p>
+            CalPaper is free to use, with an optional Premium subscription that unlocks unlimited calendar sources, faster updates, weather widgets, premium themes, and independent settings for each display. Start with a 7-day free trial.
+          </p>
+        </div>
         <div class="compare-wrap" aria-label="Free and Premium comparison">
           <div class="compare-desktop">
             <div class="compare-row compare-head">
@@ -392,8 +415,12 @@
         <h2>Ready to turn your desktop into a live calendar?</h2>
         <p>Download CalPaper and keep your schedule visible every time you look at your desktop.</p>
 
-        <a class="btn-primary cta-download" href="https://www.microsoft.com/store" target="_blank" rel="noopener noreferrer" aria-label="Download on Microsoft Store">
-          <img src="src/microsoft_store_download.png" alt="Download on Microsoft Store">
+        <a class="btn-primary" href="https://apps.microsoft.com/detail/9NB56P1XDNFM" target="_blank" rel="noopener noreferrer" aria-label="Get it from Microsoft">
+          <i class="fab fa-microsoft store-badge-icon" aria-hidden="true"></i>
+          <span class="store-badge-copy">
+            <span class="store-badge-kicker">Get it from</span>
+            <span class="store-badge-title">Microsoft</span>
+          </span>
         </a>
       </section>
 
@@ -424,6 +451,69 @@
 
       openFaqFromHash();
       window.addEventListener('hashchange', openFaqFromHash);
+    }());
+  </script>
+  <script>
+    (function () {
+      var carousel = document.querySelector('[data-theme-carousel]');
+      if (!carousel) return;
+
+      var track = carousel.querySelector('.theme-thumbs');
+      var viewport = carousel.querySelector('.theme-carousel-viewport');
+      var slides = Array.prototype.slice.call(track.querySelectorAll('.theme-thumb'));
+      var dots = Array.prototype.slice.call(document.querySelectorAll('[data-carousel-dot]'));
+      var prevButton = carousel.querySelector('[data-carousel-prev]');
+      var nextButton = carousel.querySelector('[data-carousel-next]');
+      var currentIndex = 0;
+
+      function renderSlide() {
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+
+        slides.forEach(function (slide, index) {
+          var isActive = index === currentIndex;
+          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+          slide.tabIndex = isActive ? 0 : -1;
+        });
+
+        dots.forEach(function (dot, index) {
+          var isActive = index === currentIndex;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        renderSlide();
+      }
+
+      prevButton.addEventListener('click', function () {
+        goToSlide(currentIndex - 1);
+      });
+
+      nextButton.addEventListener('click', function () {
+        goToSlide(currentIndex + 1);
+      });
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener('click', function () {
+          goToSlide(index);
+        });
+      });
+
+      viewport.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          goToSlide(currentIndex - 1);
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          goToSlide(currentIndex + 1);
+        }
+      });
+
+      renderSlide();
     }());
   </script>
   <script src="src/nav.js"></script>

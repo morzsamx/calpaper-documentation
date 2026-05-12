@@ -132,6 +132,13 @@
       return;
     }
 
+    if (currentPage === 'themes.html') {
+      setActive(findLink(function (_, target) {
+        return target.page === 'index.html' && target.hash === '#themes';
+      }));
+      return;
+    }
+
     setActive(findLink(function (_, target) {
       return target.page === currentPage && !target.hash;
     }));
