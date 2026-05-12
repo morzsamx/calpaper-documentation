@@ -888,6 +888,34 @@ img.screenshot {
 .faq-item summary {
   cursor: pointer;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary .faq-caret {
+  color: var(--accent);
+  flex: 0 0 1rem;
+  width: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.faq-item summary .faq-caret-open {
+  display: none !important;
+}
+
+.faq-item[open] summary .faq-caret-closed {
+  display: none !important;
+}
+
+.faq-item[open] summary .faq-caret-open {
+  display: inline-block !important;
 }
 
 .faq-item:target {
