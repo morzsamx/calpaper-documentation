@@ -1,4 +1,4 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://morzsamx.github.io/calpaper-documentation/sitemap.xml
+Sitemap: https://calpaper.eu/sitemap.xml

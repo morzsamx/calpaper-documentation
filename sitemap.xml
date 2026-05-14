@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://morzsamx.github.io/calpaper-documentation/</loc>
+    <loc>https://calpaper.eu/</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://morzsamx.github.io/calpaper-documentation/themes.html</loc>
+    <loc>https://calpaper.eu/themes.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://morzsamx.github.io/calpaper-documentation/privacy-policy.html</loc>
+    <loc>https://calpaper.eu/privacy-policy.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://morzsamx.github.io/calpaper-documentation/terms-of-use.html</loc>
+    <loc>https://calpaper.eu/terms-of-use.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://morzsamx.github.io/calpaper-documentation/apple-calendar-connection.html</loc>
+    <loc>https://calpaper.eu/apple-calendar-connection.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
