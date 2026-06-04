@@ -81,6 +81,7 @@
     var desktopVisible = parseInt(carousel.getAttribute('data-carousel-visible'), 10) || 1;
     var mobileVisible = parseInt(carousel.getAttribute('data-carousel-visible-mobile'), 10) || desktopVisible;
     var autoplayDelay = parseInt(carousel.getAttribute('data-carousel-autoplay'), 10);
+    var pauseOnHover = carousel.getAttribute('data-carousel-pause-on-hover') !== 'false';
     var currentPage = 0;
     var autoplayId = null;
     var suppressClickUntil = 0;
@@ -396,8 +397,11 @@
       }
     }, true);
 
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
+    if (pauseOnHover) {
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+    }
+
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
     window.addEventListener('resize', renderSlide);
