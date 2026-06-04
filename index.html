@@ -49,17 +49,17 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html"><div class="brand-icon"><img src="src/calpaper-icon.png" alt="CalPaper Icon"></div>CalPaper</a>
+      <a class="brand" href="#"><div class="brand-icon"><img src="src/calpaper-icon.png" alt="CalPaper Icon"></div>CalPaper</a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
         <i class="far fa-bars" aria-hidden="true"></i>
       </button>
 
       <nav class="nav-links" id="primary-nav" aria-label="Primary Navigation">
-        <a class="active" href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#themes">Themes</a>
-        <a href="index.html#premium">Pricing</a>
-        <a href="index.html#faq">FAQ</a>
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#themes">Themes</a>
+        <a href="#premium">Pricing</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
@@ -88,7 +88,27 @@
         </div>
 
         <div class="hero-preview">
-          <img src="src/hero-preview.webp" alt="CalPaper desktop wallpaper preview">
+          <div class="theme-carousel-shell theme-carousel-shell-hero" data-theme-carousel data-carousel-autoplay="2300">
+            <div class="theme-carousel">
+              <div class="theme-carousel-viewport" tabindex="0" aria-label="Theme previews">
+                <div class="theme-thumbs">
+                  <article class="theme-thumb">
+                    <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                  </article>
+
+                  <article class="theme-thumb">
+                    <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                  </article>
+
+                  <article class="theme-thumb">
+                    <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
+                  </article>
+                </div>
+
+                <div class="theme-carousel-dots" aria-label="Choose a theme preview"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -144,44 +164,89 @@
           <p>Hand-crafted themes built for crisp high-DPI desktops, deep customization, and calm, ADHD-friendly readability.</p>
         </div>
 
-        <div class="theme-carousel" data-theme-carousel>
-          <button class="theme-carousel-control theme-carousel-prev" type="button" aria-label="Previous theme" data-carousel-prev>
-            <i class="icon fal fa-chevron-left" aria-hidden="true"></i>
-          </button>
+        <div class="theme-carousel-shell" data-theme-carousel data-carousel-visible="2" data-carousel-visible-mobile="1">
+          <div class="theme-carousel">
+            <button class="theme-carousel-control theme-carousel-prev" type="button" aria-label="Previous theme" data-carousel-prev>
+              <i class="icon fal fa-chevron-left" aria-hidden="true"></i>
+            </button>
 
-          <div class="theme-carousel-viewport" tabindex="0" aria-label="Theme previews">
-            <div class="theme-thumbs">
-              <article class="theme-thumb">
-                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
-                <span>Minimal</span>
-              </article>
+            <div class="theme-carousel-viewport" tabindex="0" aria-label="Theme previews">
+              <div class="theme-thumbs">
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/minimal.webp" alt="Minimal theme" loading="lazy">
+                    <div class="theme-ribbon" style="background:white;color:black;">Free theme</div>
+                  </div>
+                  <span>Minimal</span>
+                </article>
 
-              <article class="theme-thumb">
-                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
-                <span>Minimal</span>
-              </article>
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/flora.webp" alt="Flora theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Customizable</div>
+                  </div>
+                  <span>Flora</span>
+                </article>
 
-              <article class="theme-thumb">
-                <img src="src/hero-preview.webp" alt="Minimal theme preview" loading="lazy">
-                <span>Minimal</span>
-              </article>
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/aurora.webp" alt="Aurora theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Customizable</div>
+                  </div>
+                  <span>Aurora</span>
+                </article>
+
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/zen.webp" alt="Zen theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Customizable</div>
+                  </div>
+                  <span>Zen</span>
+                </article>
+
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/nexus.webp" alt="Nexus theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Customizable</div>
+                  </div>
+                  <span>Nexus</span>
+                </article>
+
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/daily.webp" alt="Daily News theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Light/dark scheme</div>
+                  </div>
+                  <span>Daily News</span>
+                </article>
+
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/fold.webp" alt="Fold theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Customizable</div>
+                  </div>
+                  <span>Fold</span>
+                </article>
+
+                <article class="theme-thumb">
+                  <div class="theme-image-wrapper">
+                    <img src="src/theme-covers/orient.webp" alt="Orient theme" loading="lazy">
+                    <div class="theme-ribbon"><i class="fa fa-crown"></i> Light/dark scheme</div>
+                  </div>
+                  <span>Orient</span>
+                </article>
+
+              </div>
             </div>
+
+            <button class="theme-carousel-control theme-carousel-next" type="button" aria-label="Next theme" data-carousel-next>
+              <i class="icon fal fa-chevron-right" aria-hidden="true"></i>
+            </button>
           </div>
 
-          <button class="theme-carousel-control theme-carousel-next" type="button" aria-label="Next theme" data-carousel-next>
-            <i class="icon fal fa-chevron-right" aria-hidden="true"></i>
-          </button>
+          <div class="theme-carousel-dots" aria-label="Choose a theme preview"></div>
         </div>
-
-        <div class="theme-carousel-dots" aria-label="Choose a theme preview">
-          <button class="theme-carousel-dot active" type="button" aria-label="Show theme 1" aria-pressed="true" data-carousel-dot="0"></button>
-          <button class="theme-carousel-dot" type="button" aria-label="Show theme 2" aria-pressed="false" data-carousel-dot="1"></button>
-          <button class="theme-carousel-dot" type="button" aria-label="Show theme 3" aria-pressed="false" data-carousel-dot="2"></button>
-        </div>
-
-        <div class="theme-preview-actions">
-          <a class="btn-primary" href="themes.html">See More...</a>
-        </div>
+        
       </section>
 
       <section class="page-content upgrade-pitch" id="premium">
@@ -404,14 +469,14 @@
           <p>Yes. CalPaper works across multiple monitors. The Free plan uses the same layout on all displays, while the Premium plan supports independent per-display settings.</p>
         </details>
 
-        <details class="faq-item" id="faq-blurry-image">
-          <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>What should I do if the wallpaper looks slightly blurry?</span></summary>
-          <p>If the wallpaper looks a little blurry, open Settings and switch the performance mode from <strong>Fast</strong> to <strong>Quality</strong>. Fast mode prioritizes speed and lower resource usage, while Quality mode can produce a sharper, cleaner image.</p>
-        </details>
-
         <details class="faq-item" id="faq-customization">
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Can I customize themes and layouts?</span></summary>
           <p>Advanced theme and layout customization features are available with the Premium plan.</p>
+        </details>
+
+        <details class="faq-item" id="faq-render-quality">
+          <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Can I change the visual quality of the calendar?</span></summary>
+          <p>Yes. Under Performance Settingsyou can select <strong>Fast</strong> or <strong>Quality</strong> rendering modes. Fast mode prioritizes speed and lower resource usage, while Quality mode can produce a sharper, cleaner image.</p>
         </details>
 
         <details class="faq-item" id="faq-autostart">
@@ -477,69 +542,7 @@
       window.addEventListener('hashchange', openFaqFromHash);
     }());
   </script>
-  <script>
-    (function () {
-      var carousel = document.querySelector('[data-theme-carousel]');
-      if (!carousel) return;
-
-      var track = carousel.querySelector('.theme-thumbs');
-      var viewport = carousel.querySelector('.theme-carousel-viewport');
-      var slides = Array.prototype.slice.call(track.querySelectorAll('.theme-thumb'));
-      var dots = Array.prototype.slice.call(document.querySelectorAll('[data-carousel-dot]'));
-      var prevButton = carousel.querySelector('[data-carousel-prev]');
-      var nextButton = carousel.querySelector('[data-carousel-next]');
-      var currentIndex = 0;
-
-      function renderSlide() {
-        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-
-        slides.forEach(function (slide, index) {
-          var isActive = index === currentIndex;
-          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-          slide.tabIndex = isActive ? 0 : -1;
-        });
-
-        dots.forEach(function (dot, index) {
-          var isActive = index === currentIndex;
-          dot.classList.toggle('active', isActive);
-          dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-      }
-
-      function goToSlide(index) {
-        currentIndex = (index + slides.length) % slides.length;
-        renderSlide();
-      }
-
-      prevButton.addEventListener('click', function () {
-        goToSlide(currentIndex - 1);
-      });
-
-      nextButton.addEventListener('click', function () {
-        goToSlide(currentIndex + 1);
-      });
-
-      dots.forEach(function (dot, index) {
-        dot.addEventListener('click', function () {
-          goToSlide(index);
-        });
-      });
-
-      viewport.addEventListener('keydown', function (event) {
-        if (event.key === 'ArrowLeft') {
-          event.preventDefault();
-          goToSlide(currentIndex - 1);
-        }
-
-        if (event.key === 'ArrowRight') {
-          event.preventDefault();
-          goToSlide(currentIndex + 1);
-        }
-      });
-
-      renderSlide();
-    }());
-  </script>
+  <script src="src/sliders.js"></script>
   <script src="src/nav.js"></script>
 </body>
 </html>
