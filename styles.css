@@ -558,9 +558,24 @@ img.screenshot {
   padding: 0 3.5rem;
 }
 
+.theme-carousel-shell:not(.theme-carousel-shell-hero) .theme-carousel {
+  padding: 0;
+}
+
 .theme-carousel-viewport {
   overflow: hidden;
   position: relative;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.theme-carousel-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.theme-carousel-viewport.is-dragging,
+.theme-carousel-viewport.is-dragging * {
+  user-select: none;
 }
 
 .theme-thumbs {
@@ -659,6 +674,8 @@ img.screenshot {
 
 .lightbox-trigger {
   cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .lightbox {
@@ -692,8 +709,8 @@ img.screenshot {
 
 .lightbox-close {
   position: absolute;
-  top: -0.9rem;
-  right: -0.9rem;
+  top: 0;
+  right: 0;
   width: 2.6rem;
   height: 2.6rem;
   display: inline-flex;
@@ -701,14 +718,15 @@ img.screenshot {
   justify-content: center;
   border: 0;
   border-radius: 999px;
-  background: #fff;
-  color: var(--text);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  background: transparent;
+  color: white;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .theme-image-wrapper {
     position: relative;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -1140,6 +1158,10 @@ img.screenshot {
 
   .theme-carousel {
     padding: 0 2.5rem;
+  }
+
+  .theme-carousel-shell:not(.theme-carousel-shell-hero) .theme-carousel {
+    padding: 0;
   }
 
   .theme-thumb img {

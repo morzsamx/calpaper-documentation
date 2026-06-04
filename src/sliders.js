@@ -23,7 +23,7 @@
     closeButton.className = 'lightbox-close';
     closeButton.type = 'button';
     closeButton.setAttribute('aria-label', 'Close image preview');
-    closeButton.innerHTML = '<i class="icon fal fa-times" aria-hidden="true"></i>';
+    closeButton.innerHTML = '<i class="icon fa fa-times" aria-hidden="true"></i>';
 
     content.appendChild(closeButton);
     content.appendChild(image);
@@ -83,11 +83,31 @@
     var autoplayDelay = parseInt(carousel.getAttribute('data-carousel-autoplay'), 10);
     var currentPage = 0;
     var autoplayId = null;
+    var suppressClickUntil = 0;
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var touchDeltaX = 0;
+    var touchDeltaY = 0;
+    var isTouchTracking = false;
+    var pointerStartX = 0;
+    var pointerStartY = 0;
+    var pointerDeltaX = 0;
+    var pointerDeltaY = 0;
+    var activePointerId = null;
+    var isPointerTracking = false;
+    var pointerDownImage = null;
 
     if (!track || !viewport) return;
 
     var slides = Array.prototype.slice.call(track.querySelectorAll('.theme-thumb'));
     if (!slides.length) return;
+
+    function openImagePreview(image) {
+      if (!image) return;
+
+      stopAutoplay();
+      lightbox.open(image.currentSrc || image.src, image.alt, startAutoplay);
+    }
 
     function bindLightbox() {
       slides.forEach(function (slide) {
@@ -96,13 +116,14 @@
 
         image.dataset.lightboxBound = 'true';
         image.classList.add('lightbox-trigger');
+        image.setAttribute('draggable', 'false');
         image.tabIndex = 0;
         image.setAttribute('role', 'button');
         image.setAttribute('aria-label', 'Open larger preview for ' + (image.alt || 'theme'));
 
         function openImage() {
-          stopAutoplay();
-          lightbox.open(image.currentSrc || image.src, image.alt, startAutoplay);
+          if (Date.now() < suppressClickUntil) return;
+          openImagePreview(image);
         }
 
         image.addEventListener('click', openImage);
@@ -218,6 +239,25 @@
       }
     }
 
+    function resetTouchTracking() {
+      touchStartX = 0;
+      touchStartY = 0;
+      touchDeltaX = 0;
+      touchDeltaY = 0;
+      isTouchTracking = false;
+    }
+
+    function resetPointerTracking() {
+      pointerStartX = 0;
+      pointerStartY = 0;
+      pointerDeltaX = 0;
+      pointerDeltaY = 0;
+      activePointerId = null;
+      isPointerTracking = false;
+      pointerDownImage = null;
+      viewport.classList.remove('is-dragging');
+    }
+
     if (prevButton) {
       prevButton.addEventListener('click', function () {
         goToPage(currentPage - 1);
@@ -245,6 +285,116 @@
         startAutoplay();
       }
     });
+
+    viewport.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) return;
+
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+      touchDeltaX = 0;
+      touchDeltaY = 0;
+      isTouchTracking = true;
+      stopAutoplay();
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', function (event) {
+      if (!isTouchTracking || event.touches.length !== 1) return;
+
+      touchDeltaX = event.touches[0].clientX - touchStartX;
+      touchDeltaY = event.touches[0].clientY - touchStartY;
+
+      if (Math.abs(touchDeltaX) > Math.abs(touchDeltaY) && event.cancelable) {
+        event.preventDefault();
+      }
+    }, { passive: false });
+
+    viewport.addEventListener('touchend', function () {
+      if (!isTouchTracking) return;
+
+      if (Math.abs(touchDeltaX) > 50 && Math.abs(touchDeltaX) > Math.abs(touchDeltaY)) {
+        suppressClickUntil = Date.now() + 400;
+        goToPage(touchDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+      }
+
+      resetTouchTracking();
+      startAutoplay();
+    });
+
+    viewport.addEventListener('touchcancel', function () {
+      resetTouchTracking();
+      startAutoplay();
+    });
+
+    viewport.addEventListener('pointerdown', function (event) {
+      if (event.pointerType === 'touch' || event.button !== 0) return;
+      var pointerThumb;
+
+      pointerStartX = event.clientX;
+      pointerStartY = event.clientY;
+      pointerDeltaX = 0;
+      pointerDeltaY = 0;
+      activePointerId = event.pointerId;
+      isPointerTracking = true;
+      pointerThumb = event.target.closest ? event.target.closest('.theme-thumb') : null;
+      pointerDownImage = pointerThumb ? pointerThumb.querySelector('img') : null;
+      stopAutoplay();
+
+      if (viewport.setPointerCapture) {
+        viewport.setPointerCapture(event.pointerId);
+      }
+    });
+
+    viewport.addEventListener('pointermove', function (event) {
+      if (!isPointerTracking || event.pointerId !== activePointerId) return;
+
+      pointerDeltaX = event.clientX - pointerStartX;
+      pointerDeltaY = event.clientY - pointerStartY;
+
+      if (Math.abs(pointerDeltaX) > 8) {
+        viewport.classList.add('is-dragging');
+      }
+
+      if (Math.abs(pointerDeltaX) > Math.abs(pointerDeltaY) && event.cancelable) {
+        event.preventDefault();
+      }
+    });
+
+    viewport.addEventListener('pointerup', function (event) {
+      if (!isPointerTracking || event.pointerId !== activePointerId) return;
+
+      if (Math.abs(pointerDeltaX) > 60 && Math.abs(pointerDeltaX) > Math.abs(pointerDeltaY)) {
+        suppressClickUntil = Date.now() + 400;
+        goToPage(pointerDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+      } else if (pointerDownImage) {
+        suppressClickUntil = Date.now() + 250;
+        openImagePreview(pointerDownImage);
+      }
+
+      if (viewport.releasePointerCapture && viewport.hasPointerCapture && viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+
+      resetPointerTracking();
+      startAutoplay();
+    });
+
+    viewport.addEventListener('pointercancel', function (event) {
+      if (event.pointerId !== activePointerId) return;
+
+      if (viewport.releasePointerCapture && viewport.hasPointerCapture && viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+
+      resetPointerTracking();
+      startAutoplay();
+    });
+
+    viewport.addEventListener('click', function (event) {
+      if (Date.now() < suppressClickUntil) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
 
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
