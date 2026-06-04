@@ -166,10 +166,6 @@
 
         <div class="theme-carousel-shell" data-theme-carousel data-carousel-visible="2" data-carousel-visible-mobile="1">
           <div class="theme-carousel">
-            <button class="theme-carousel-control theme-carousel-prev" type="button" aria-label="Previous theme" data-carousel-prev>
-              <i class="icon fal fa-chevron-left" aria-hidden="true"></i>
-            </button>
-
             <div class="theme-carousel-viewport" tabindex="0" aria-label="Theme previews">
               <div class="theme-thumbs">
                 <article class="theme-thumb">
@@ -238,15 +234,21 @@
 
               </div>
             </div>
+          </div>
+
+          <div class="theme-carousel-footer">
+            <button class="theme-carousel-control theme-carousel-prev" type="button" aria-label="Previous theme" data-carousel-prev>
+              <i class="icon fal fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="theme-carousel-dots" aria-label="Choose a theme preview"></div>
 
             <button class="theme-carousel-control theme-carousel-next" type="button" aria-label="Next theme" data-carousel-next>
               <i class="icon fal fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
-
-          <div class="theme-carousel-dots" aria-label="Choose a theme preview"></div>
         </div>
-        
+
       </section>
 
       <section class="page-content upgrade-pitch" id="premium">
@@ -414,6 +416,8 @@
         <h2>FAQ</h2>
         <p>Find answers about supported calendar providers, privacy, read-only access, offline behavior, and Premium features for the CalPaper desktop calendar wallpaper app.</p>
 
+        <h3>Connection</h3>
+
         <details class="faq-item" id="faq-supported-calendars">
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Which calendar services are supported?</span></summary>
           <p>CalPaper supports Google Calendar, Microsoft Outlook Calendar, Apple Calendar via CalDAV, and standard ICS calendar feeds.</p>
@@ -444,6 +448,8 @@
           <p>You can add your ICS calendar feed directly to CalPaper by providing the URL of your calendar's ICS file.</p>
         </details>
 
+        <h3>Privacy</h3>
+
         <details class="faq-item" id="faq-read-only">
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Can CalPaper edit my calendar data?</span></summary>
           <p>No. CalPaper only downloads calendar data for display purposes and does not have write access to your calendars.</p>
@@ -459,10 +465,7 @@
           <p>No. CalPaper does not send your calendar data to external servers. All data stays on your device and is only used locally for displaying your calendars.</p>
         </details>
 
-        <details class="faq-item" id="faq-internet">
-          <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Does CalPaper require an internet connection?</span></summary>
-          <p>CalPaper can run without an internet connection, but calendar data and weather information cannot be refreshed while offline.</p>
-        </details>
+        <h3>Settings</h3>
 
         <details class="faq-item" id="faq-multiple-monitors">
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Does CalPaper support multiple monitors?</span></summary>
@@ -483,6 +486,13 @@
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Does CalPaper start automatically with Windows?</span></summary>
           <p>Yes. CalPaper can start automatically when Windows launches.</p>
         </details>
+
+        <details class="faq-item" id="faq-internet">
+          <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>Does CalPaper require an internet connection?</span></summary>
+          <p>CalPaper can run without an internet connection, but calendar data and weather information cannot be refreshed while offline.</p>
+        </details>
+
+        <h3>Premium</h3>
 
         <details class="faq-item" id="faq-premium-benefits">
           <summary><i class="icon fa fas fa-caret-right faq-caret faq-caret-closed" aria-hidden="true"></i><i class="icon fa fas fa-caret-down faq-caret faq-caret-open" aria-hidden="true"></i><span>What’s included in the Premium subscription?</span></summary>
