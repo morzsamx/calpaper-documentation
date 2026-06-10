@@ -126,6 +126,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   text-decoration: none;
   padding: 0.45rem 0.75rem;
   height: 40px;
@@ -133,6 +134,10 @@ a:hover {
   border: 1px solid transparent;
   color: var(--text);
   transition: 0.2s ease;
+}
+
+.nav-links a i {
+  font-size: 1rem;
 }
 
 .nav-links a:hover,
