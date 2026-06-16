@@ -448,17 +448,110 @@ img.screenshot {
   gap: 1rem;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-links .footer-link-button {
   color: var(--muted);
   text-decoration: none;
 }
 
-.footer-links a:hover {
+.footer-links .footer-link-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer-links a:hover,
+.footer-links .footer-link-button:hover {
   color: var(--accent);
 }
 
 .site-footer {
   font-size: .9em;
+}
+
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  width: min(720px, calc(100% - 1.5rem));
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
+  transform: translate(-50%, calc(100% + 2rem));
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 80;
+}
+
+.cookie-banner.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.cookie-banner-inner {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cookie-banner-copy {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.cookie-banner-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cookie-banner-note {
+  font-size: 0.92rem;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.cookie-banner-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  padding: 0.72rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-banner-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cookie-banner-btn-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #eb8a55);
+  color: #fff;
+}
+
+.cookie-banner-btn-primary:hover {
+  color: #fff;
+  filter: brightness(1.05);
+}
+
+.cookie-banner-link {
+  color: var(--accent-2);
+}
+
+.cookie-banner-link:hover {
+  color: var(--accent);
 }
 
 .home-stack {
@@ -1190,6 +1283,21 @@ img.screenshot {
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .cookie-banner {
+    width: calc(100% - 1rem);
+    padding: 0.95rem;
+    border-radius: 18px;
+  }
+
+  .cookie-banner-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-banner-btn {
+    width: 100%;
   }
 
   .container.footer-row > div {
