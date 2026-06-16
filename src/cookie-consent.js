@@ -3,6 +3,18 @@
   var MEASUREMENT_ID = 'G-PD2N6V9X1L';
   var SCRIPT_ID = 'calpaper-google-analytics';
   var BANNER_CLASS = 'cookie-banner';
+  var DEFAULT_CONSENT = {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  };
+  var ACCEPTED_CONSENT = {
+    analytics_storage: 'granted',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  };
   var state = {
     banner: null
   };
@@ -23,10 +35,6 @@
     }
   }
 
-  function setTrackingDisabled(disabled) {
-    window['ga-disable-' + MEASUREMENT_ID] = disabled;
-  }
-
   function ensureGtag() {
     window.dataLayer = window.dataLayer || [];
 
@@ -37,33 +45,9 @@
     }
   }
 
-  function initializeAnalyticsQueue() {
-    ensureGtag();
-
-    if (window.__calpaperAnalyticsInitialized) {
-      return;
-    }
-
-    window.gtag('js', new Date());
-    window.gtag('consent', 'default', {
-      analytics_storage: 'granted',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
-    window.gtag('config', MEASUREMENT_ID, {
-      anonymize_ip: true
-    });
-
-    window.__calpaperAnalyticsInitialized = true;
-  }
-
-  function loadAnalytics() {
+  function loadAnalyticsScript() {
     var existingScript;
     var script;
-
-    setTrackingDisabled(false);
-    initializeAnalyticsQueue();
 
     existingScript = document.getElementById(SCRIPT_ID);
     if (existingScript) {
@@ -75,6 +59,33 @@
     script.id = SCRIPT_ID;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(MEASUREMENT_ID);
     document.head.appendChild(script);
+  }
+
+  function initializeAnalytics(consent) {
+    ensureGtag();
+
+    if (window.__calpaperAnalyticsInitialized) {
+      return;
+    }
+
+    window.gtag('consent', 'default', {
+      analytics_storage: DEFAULT_CONSENT.analytics_storage,
+      ad_storage: DEFAULT_CONSENT.ad_storage,
+      ad_user_data: DEFAULT_CONSENT.ad_user_data,
+      ad_personalization: DEFAULT_CONSENT.ad_personalization
+    });
+
+    if (consent === 'accepted') {
+      window.gtag('consent', 'update', ACCEPTED_CONSENT);
+    }
+
+    loadAnalyticsScript();
+    window.gtag('js', new Date());
+    window.gtag('config', MEASUREMENT_ID, {
+      anonymize_ip: true
+    });
+
+    window.__calpaperAnalyticsInitialized = true;
   }
 
   function deleteCookieEverywhere(name) {
@@ -141,19 +152,15 @@
     }
   }
 
-  function disableAnalytics() {
-    setTrackingDisabled(true);
-
-    if (window.gtag) {
-      window.gtag('consent', 'update', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
-      });
-    }
-
+  function denyOptionalCookies() {
+    ensureGtag();
+    window.gtag('consent', 'update', DEFAULT_CONSENT);
     clearAnalyticsCookies();
+  }
+
+  function allowOptionalCookies() {
+    ensureGtag();
+    window.gtag('consent', 'update', ACCEPTED_CONSENT);
   }
 
   function hideBanner() {
@@ -178,12 +185,11 @@
     writeConsent(consent);
 
     if (consent === 'accepted') {
-      loadAnalytics();
-      window.location.reload();
-      return;
+      allowOptionalCookies();
+    } else {
+      denyOptionalCookies();
     }
 
-    disableAnalytics();
     hideBanner();
   }
 
@@ -206,7 +212,7 @@
       '<div class="cookie-banner-inner">' +
         '<div class="cookie-banner-copy">' +
           '<strong>Cookie preferences</strong>' +
-          '<p>We use optional cookies and similar browser storage to improve site performance and understand which pages are most useful. You can continue without them.</p>' +
+          '<p>We use optional cookies for more detailed analytics. If you continue without them, we may still receive limited cookie-free measurement data.</p>' +
           '<p class="cookie-banner-note">You can change this choice anytime in Cookie Settings. See our <a class="cookie-banner-link" href="privacy-policy.html">Privacy Policy</a>.</p>' +
         '</div>' +
         '<div class="cookie-banner-actions">' +
@@ -247,13 +253,13 @@
 
     buildBanner();
     bindSettingsButtons();
+    initializeAnalytics(consent);
 
     if (consent === 'accepted') {
-      loadAnalytics();
       return;
     }
 
-    disableAnalytics();
+    denyOptionalCookies();
 
     if (consent !== 'rejected') {
       showBanner();
