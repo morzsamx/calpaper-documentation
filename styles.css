@@ -525,6 +525,7 @@ img.screenshot {
   background: #fff;
   color: var(--text);
   padding: 0.72rem 1rem;
+  flex: 1 1 0;
   font: inherit;
   font-weight: 600;
   cursor: pointer;

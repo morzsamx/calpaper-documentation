@@ -179,10 +179,11 @@
 
     if (consent === 'accepted') {
       loadAnalytics();
-    } else {
-      disableAnalytics();
+      window.location.reload();
+      return;
     }
 
+    disableAnalytics();
     hideBanner();
   }
 
